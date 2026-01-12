@@ -1,158 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Creating Listings on Pavilion</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Creating Listings on Pavilion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- MAIN STYLES -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-<main class="container">
+<body class="material">
 
+  <!-- 🌙 DARK MODE TOGGLE (CSS-ONLY) -->
+  <input type="checkbox" id="dark-toggle" hidden>
+  <label for="dark-toggle" class="dark-toggle" aria-label="Toggle dark mode">
+    🌙
+  </label>
+
+  <main class="container">
+
+    <!-- PAGE HEADER -->
     <header class="page-header">
-        <h1>Creating Listings on Pavilion</h1>
-        <p>
-            For home-owners and agents new to the Pavilion app, follow the steps
-            below to upload your apartment listings.
-        </p>
+      <h1>Creating Listings on Pavilion</h1>
+      <p>
+        For home-owners and agents new to the Pavilion app, follow the steps
+        below to upload your apartment listings.
+      </p>
     </header>
 
+    <!-- STEPS SECTION -->
     <section aria-labelledby="steps-title">
-        <h2 id="steps-title">Steps for Creating Listings</h2>
+      <h2 id="steps-title">Steps for Creating Listings</h2>
 
-        <ol class="steps">
+      <ol class="steps">
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-1">
-                    Switch from Guest Mode to Owner Mode
-                </button>
-                <div class="step-image" id="step-1" hidden>
-                    <img src="images/IMG1-20250504-WA0255.jpg" alt="Switching from Guest Mode to Owner Mode">
-                </div>
-            </li>
+        <li class="step" data-step="1">
+          <button class="step-text" aria-expanded="false" aria-controls="step-1">
+            Switch from Guest Mode to Owner Mode
+          </button>
+          <div class="step-image" id="step-1" hidden>
+            <img src="images/IMG1-20250504-WA0255.jpg" alt="Switch from Guest Mode to Owner Mode">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-2">
-                    Tap on the Listings icon
-                </button>
-                <div class="step-image" id="step-2" hidden>
-                    <img src="images/IMG2-20250504-WA0261.jpg" alt="Listings icon on Pavilion app">
-                </div>
-            </li>
+        <li class="step" data-step="2">
+          <button class="step-text" aria-expanded="false" aria-controls="step-2">
+            Tap on the Listings icon
+          </button>
+          <div class="step-image" id="step-2" hidden>
+            <img src="images/IMG2-20250504-WA0261.jpg" alt="Listings icon on Pavilion app">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-3">
-                    Tap the Add button on the Draft page
-                </button>
-                <div class="step-image" id="step-3" hidden>
-                    <img src="images/IMG3-20250504-WA0263.jpg" alt="Add button on draft page">
-                </div>
-            </li>
+        <li class="step" data-step="3">
+          <button class="step-text" aria-expanded="false" aria-controls="step-3">
+            Tap the Add button on the Draft page
+          </button>
+          <div class="step-image" id="step-3" hidden>
+            <img src="images/IMG3-20250504-WA0263.jpg" alt="Add button on draft page">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-4">
-                    Create a New Listing
-                </button>
-                <div class="step-image" id="step-4" hidden>
-                    <img src="images/IMG4-20250504-WA0257.jpg" alt="Create new listing screen">
-                </div>
-            </li>
+        <li class="step" data-step="4">
+          <button class="step-text" aria-expanded="false" aria-controls="step-4">
+            Create a New Listing
+          </button>
+          <div class="step-image" id="step-4" hidden>
+            <img src="images/IMG4-20250504-WA0257.jpg" alt="Create new listing screen">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-5">
-                    Choose property type
-                </button>
-                <div class="step-image" id="step-5" hidden>
-                    <img src="images/IMG5-20250504-WA0256.jpg" alt="Choose property type">
-                </div>
-            </li>
+        <li class="step" data-step="5">
+          <button class="step-text" aria-expanded="false" aria-controls="step-5">
+            Choose property type
+          </button>
+          <div class="step-image" id="step-5" hidden>
+            <img src="images/IMG5-20250504-WA0256.jpg" alt="Choose property type">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-6">
-                    Choose amenities
-                </button>
-                <div class="step-image" id="step-6" hidden>
-                    <img src="images/IMG6-20250504-WA0260.jpg" alt="Amenities selection screen">
-                </div>
-            </li>
+        <li class="step" data-step="6">
+          <button class="step-text" aria-expanded="false" aria-controls="step-6">
+            Choose amenities
+          </button>
+          <div class="step-image" id="step-6" hidden>
+            <img src="images/IMG6-20250504-WA0260.jpg" alt="Amenities selection screen">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-7">
-                    Add photos of your apartment
-                </button>
-                <div class="step-image" id="step-7" hidden>
-                    <img src="images/IMG7-20250504-WA0259.jpg" alt="Add apartment photos">
-                </div>
-            </li>
+        <li class="step" data-step="7">
+          <button class="step-text" aria-expanded="false" aria-controls="step-7">
+            Add photos of your apartment
+          </button>
+          <div class="step-image" id="step-7" hidden>
+            <img src="images/IMG7-20250504-WA0259.jpg" alt="Add apartment photos">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-8">
-                    Enter listing address
-                </button>
-                <div class="step-image" id="step-8" hidden>
-                    <img src="images/IMG8-20250504-WA0253.jpg" alt="Listing address screen">
-                </div>
-            </li>
+        <li class="step" data-step="8">
+          <button class="step-text" aria-expanded="false" aria-controls="step-8">
+            Enter listing address
+          </button>
+          <div class="step-image" id="step-8" hidden>
+            <img src="images/IMG8-20250504-WA0253.jpg" alt="Listing address screen">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-9">
-                    Set listing price
-                </button>
-                <div class="step-image" id="step-9" hidden>
-                    <img src="images/IMG9-20250504-WA0262.jpg" alt="Set listing price">
-                </div>
-            </li>
+        <li class="step" data-step="9">
+          <button class="step-text" aria-expanded="false" aria-controls="step-9">
+            Set listing price
+          </button>
+          <div class="step-image" id="step-9" hidden>
+            <img src="images/IMG9-20250504-WA0262.jpg" alt="Set listing price">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-10">
-                    Add discounts and submit
-                </button>
-                <div class="step-image" id="step-10" hidden>
-                    <img src="images/IMG10-20250504-WA0254.jpg" alt="Add discounts">
-                </div>
-            </li>
+        <li class="step" data-step="10">
+          <button class="step-text" aria-expanded="false" aria-controls="step-10">
+            Add discounts and submit
+          </button>
+          <div class="step-image" id="step-10" hidden>
+            <img src="images/IMG10-20250504-WA0254.jpg" alt="Add discounts and submit listing">
+          </div>
+        </li>
 
-            <li class="step">
-                <button class="step-text" aria-expanded="false" aria-controls="step-11">
-                    Publish listing
-                </button>
-                <div class="step-image" id="step-11" hidden>
-                    <img src="images/IMG11-20250504-WA0258.jpg" alt="Publish listing screen">
-                </div>
-            </li>
+        <li class="step" data-step="11">
+          <button class="step-text" aria-expanded="false" aria-controls="step-11">
+            Publish listing
+          </button>
+          <div class="step-image" id="step-11" hidden>
+            <img src="images/IMG11-20250504-WA0258.jpg" alt="Publish listing screen">
+          </div>
+        </li>
 
-        </ol>
+      </ol>
     </section>
 
-</main>
+  </main>
 
-<!-- FINAL MESSAGE -->
-    <p class="bigbold" role="status">
-        <strong> Just like that, you have uploaded your apartment on the Pavilion app.
-        Easy right? Get started now and start earning with Pavilion!</strong>
-    </p>
+  <!-- FINAL MESSAGE -->
+  <p class="bigbold" role="status">
+    <strong>
+      Just like that, you have uploaded your apartment on the Pavilion app.
+      Easy right? Get started now and start earning with Pavilion!
+    </strong>
+  </p>
 
-    <!-- QUOTE -->
-    <blockquote aria-label="Motivational quote">
-        <p>He who tills now, enjoys later.</p>
-        <cite>TheBlaqOne</cite>
-    </blockquote>
+  <!-- QUOTE -->
+  <blockquote class="quote" aria-label="Motivational quote">
+    He who tills now, enjoys later.
+    <span>TheBlaqOne</span>
+  </blockquote>
 
-    <!-- LINKS -->
-    <h2>Back to Main Webpage</h2>
+  <!-- LINKS -->
+  <h2>Back to Main Webpage</h2>
 
-    <p>
-        Click here to go back to home page
-        <a href="https://www.pavilionbookings.com" target="_blank" rel="noopener noreferrer">
-            Pavilion
-        </a>
-    </p>
+  <p>
+    Click here to go back to home page
+    <a href="https://www.pavilionbookings.com" target="_blank" rel="noopener noreferrer">
+      Pavilion
+    </a>
+  </p>
 
-    <p>
-        Visit my <a href="pav.html">pav page</a>.
-    </p>
+  <p>
+    Visit my <a href="pav.html">pav page</a>.
+  </p>
 
-<script src="back.js"></script>
+  <!-- EXISTING JS (UNCHANGED) -->
+  <script src="back.js"></script>
+
 </body>
 </html>
