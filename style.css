@@ -1,16 +1,70 @@
+/* =========================
+   DESIGN TOKENS
+========================= */
+
 :root {
-  /* Brand colours */
-  --accent-orange: #FF6B22;
-  --bg-cream: #FEF6F2;
-  --soft-peach: #ECC1AA;
+  --accent-orange: #ff6b22;
+  --bg-cream: #fef6f2;
+  --soft-peach: #ecc1aa;
+  --text-main: #4e4c4b;
+  --text-secondary: #96928f;
+  --white: #ffffff;
 
-  /* Text */
-  --text-main: #4E4C4B;
-  --text-secondary: #96928F;
+  --radius-xl: 22px;
+  --radius-lg: 16px;
 
-  /* Utility */
-  --white: #FFFFFF;
+  --shadow-soft:
+    0 2px 6px rgba(0, 0, 0, 0.05),
+    0 10px 25px rgba(0, 0, 0, 0.08);
+
+  --shadow-press:
+    inset 0 2px 4px rgba(0, 0, 0, 0.15);
+
+  --ease-ios: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+/* =========================
+   DARK MODE (CSS ONLY)
+========================= */
+
+#dark-toggle:checked ~ * {
+  --bg-cream: #0f1115;
+  --white: #16181d;
+  --text-main: #f4f4f4;
+  --text-secondary: #a0a0a0;
+  --soft-peach: #2a2e35;
+  --accent-orange: #ff8a50;
+}
+
+/* Toggle button */
+.dark-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 999;
+  cursor: pointer;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+
+  transition: transform 180ms var(--ease-ios),
+              background 180ms ease;
+}
+
+.dark-toggle:active {
+  transform: scale(0.9);
+}
+
+/* =========================
+   BASE RESET
+========================= */
 
 * {
   box-sizing: border-box;
@@ -19,120 +73,213 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg-cream);
+  background: linear-gradient(180deg, var(--bg-cream), #fff);
   color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
 }
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container {
-  max-width: 860px;
+  max-width: 1100px;
   margin: auto;
-  padding: 2rem 1rem 4rem;
+  padding: 2.5rem 1rem 4rem;
 }
 
-/* Page header */
+/* =========================
+   PAGE HEADER
+========================= */
 
 .page-header h1 {
-  margin-bottom: 0.5rem;
-  color: var(--text-main);
+  font-size: 1.9rem;
+  margin-bottom: 0.6rem;
 }
 
 .page-header p {
+  max-width: 640px;
   color: var(--text-secondary);
-  max-width: 620px;
 }
 
-/* Steps list */
+/* =========================
+   STEPS GRID
+========================= */
 
 .steps {
   list-style: none;
   padding: 0;
-  margin-top: 2rem;
+  margin-top: 3rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
 }
 
-/* Step card — much rounder */
+/* =========================
+   STEP CARD
+========================= */
 
 .step {
+  position: relative;
   background: var(--white);
+  border-radius: var(--radius-xl);
   border: 1px solid var(--soft-peach);
-  border-radius: 28px;
-  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-soft);
+
+  padding: 1.25rem;
+  min-height: 190px;
   overflow: hidden;
+
+  transition:
+    transform 200ms var(--ease-ios),
+    box-shadow 200ms var(--ease-ios);
 }
 
-/* Step button — pill-like */
+/* iOS-style lift */
+.step:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.08),
+    0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   ANIMATED STEP NUMBER
+========================= */
+
+.step::before {
+  content: attr(data-step);
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+
+  font-size: 3.6rem;
+  font-weight: 800;
+  color: var(--soft-peach);
+  opacity: 0.35;
+
+  transform: translateY(-10px);
+  animation: floatIn 500ms ease forwards;
+}
+
+@keyframes floatIn {
+  to {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   STEP BUTTON
+========================= */
 
 .step-text {
-  width: 100%;
-  padding: 1.15rem 3.25rem 1.15rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: left;
-
-  background: transparent;
+  background: none;
   border: none;
-  cursor: pointer;
-
-  color: var(--accent-orange);
+  padding: 0;
+  width: 100%;
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
-  border-radius: 28px;
-  position: relative;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-orange);
+  cursor: pointer;
+
+  transition: transform 120ms var(--ease-ios);
+}
+
+/* iOS press illusion */
+.step-text:active {
+  transform: scale(0.97);
 }
 
 /* + / − icon */
-
 .step-text::after {
   content: "+";
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--accent-orange);
-
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  font-size: 1.35rem;
 }
 
 .step-text[aria-expanded="true"]::after {
   content: "–";
 }
 
-/* Hover & focus */
-
-.step-text:hover {
-  background: rgba(255, 107, 34, 0.08);
-}
-
+/* Focus ring */
 .step-text:focus {
   outline: 3px solid rgba(255, 107, 34, 0.45);
-  outline-offset: 0;
+  outline-offset: 4px;
 }
 
-/* Image panel */
+/* =========================
+   IMAGE PANEL
+========================= */
 
 .step-image {
-  padding: 0 1.5rem 1.25rem;
+  margin-top: 0.9rem;
   transition:
-    max-height 340ms ease,
-    opacity 300ms ease,
-    transform 300ms ease;
+    max-height 320ms var(--ease-ios),
+    opacity 260ms ease,
+    transform 260ms var(--ease-ios);
 }
 
 .step-image[hidden] {
   max-height: 0;
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
-
-/* Image — softer rounding */
 
 .step-image img {
   width: 100%;
-  border-radius: 22px;
-  margin-top: 0.85rem;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--soft-peach);
   background: var(--bg-cream);
+}
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.bigbold {
+  max-width: 720px;
+  margin: 3.5rem auto 0;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote {
+  margin: 3.5rem auto 0;
+  max-width: 520px;
+  text-align: center;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.quote span {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-left: 0.4rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .steps {
+    gap: 1.25rem;
+  }
 }
