@@ -65,7 +65,7 @@ body {
   width: 100%;
   padding: 1.15rem 3.25rem 1.15rem 1.5rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
 
   background: transparent;
@@ -136,3 +136,4 @@ body {
   border: 1px solid var(--soft-peach);
   background: var(--bg-cream);
 }
+
