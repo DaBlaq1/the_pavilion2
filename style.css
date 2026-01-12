@@ -28,8 +28,8 @@
 ========================= */
 
 #dark-toggle:checked ~ * {
-  --bg-cream: #0f1115;
-  --white: #16181d;
+  --bg-cream: #1b1e24; /* dark background, lighter than cards */
+  --white: #121418;    /* card surface */
   --text-main: #f4f4f4;
   --text-secondary: #a0a0a0;
   --soft-peach: #2a2e35;
@@ -73,7 +73,11 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(180deg, var(--bg-cream), #fff);
+  background: linear-gradient(
+    180deg,
+    var(--bg-cream),
+    rgba(0, 0, 0, 0.03)
+  );
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
 }
@@ -145,27 +149,27 @@ body {
 }
 
 /* =========================
-   ANIMATED STEP NUMBER
+   ANIMATED STEP NUMBER (MOVED TO BOTTOM)
 ========================= */
 
 .step::before {
   content: attr(data-step);
   position: absolute;
-  top: 0.6rem;
+  bottom: 0.6rem;   /* MOVED TO BOTTOM */
   right: 0.9rem;
 
   font-size: 3.6rem;
   font-weight: 800;
   color: var(--soft-peach);
-  opacity: 0.35;
+  opacity: 0.32;
 
-  transform: translateY(-10px);
-  animation: floatIn 500ms ease forwards;
+  transform: translateY(10px);
+  animation: floatUp 500ms ease forwards;
 }
 
-@keyframes floatIn {
+@keyframes floatUp {
   to {
-    opacity: 0.35;
+    opacity: 0.32;
     transform: translateY(0);
   }
 }
