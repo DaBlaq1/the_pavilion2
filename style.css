@@ -1,0 +1,138 @@
+:root {
+  /* Brand colours */
+  --accent-orange: #FF6B22;
+  --bg-cream: #FEF6F2;
+  --soft-peach: #ECC1AA;
+
+  /* Text */
+  --text-main: #4E4C4B;
+  --text-secondary: #96928F;
+
+  /* Utility */
+  --white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-cream);
+  color: var(--text-main);
+}
+
+.container {
+  max-width: 860px;
+  margin: auto;
+  padding: 2rem 1rem 4rem;
+}
+
+/* Page header */
+
+.page-header h1 {
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.page-header p {
+  color: var(--text-secondary);
+  max-width: 620px;
+}
+
+/* Steps list */
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+/* Step card — much rounder */
+
+.step {
+  background: var(--white);
+  border: 1px solid var(--soft-peach);
+  border-radius: 28px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+/* Step button — pill-like */
+
+.step-text {
+  width: 100%;
+  padding: 1.15rem 3.25rem 1.15rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  color: var(--accent-orange);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 28px;
+  position: relative;
+}
+
+/* + / − icon */
+
+.step-text::after {
+  content: "+";
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--accent-orange);
+
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.step-text[aria-expanded="true"]::after {
+  content: "–";
+}
+
+/* Hover & focus */
+
+.step-text:hover {
+  background: rgba(255, 107, 34, 0.08);
+}
+
+.step-text:focus {
+  outline: 3px solid rgba(255, 107, 34, 0.45);
+  outline-offset: 0;
+}
+
+/* Image panel */
+
+.step-image {
+  padding: 0 1.5rem 1.25rem;
+  transition:
+    max-height 340ms ease,
+    opacity 300ms ease,
+    transform 300ms ease;
+}
+
+.step-image[hidden] {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Image — softer rounding */
+
+.step-image img {
+  width: 100%;
+  border-radius: 22px;
+  margin-top: 0.85rem;
+  border: 1px solid var(--soft-peach);
+  background: var(--bg-cream);
+}
